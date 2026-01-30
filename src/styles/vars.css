@@ -1,0 +1,150 @@
+:root {
+  --sc-color-white: #fff;
+  --sc-color-black: #000;
+
+  /* ================================= 主色系：莫兰迪蓝（品牌主色/核心视觉）================================= */
+  --sc-color-primary-dark-2: #255c99;
+  /* 主色深色：按钮hover/激活、强调描边 */
+  --sc-color-primary: #3a71b8;
+  /* 主色：品牌色、主要按钮、导航、核心文字 */
+  --sc-color-primary-light-3: #5a89c4;
+  /* 主色浅1：按钮描边、次要文字、图标 */
+  --sc-color-primary-light-5: #7aa1d0;
+  /* 主色浅2：hover背景、轻微强调背景 */
+  --sc-color-primary-light-7: #9cb9dc;
+  /* 主色浅3：轻量背景、分割线、输入框边框 */
+  --sc-color-primary-light-8: #bed1e8;
+  /* 主色浅4：超轻背景、占位符背景、辅助分割 */
+  --sc-color-primary-light-9: #e0eaf4;
+  /* 主色浅5：极浅背景、页面底色、卡片轻底色 */
+
+  /* ================================= 辅助色1：暖橙（交互/强调/警告轻提示）================================= */
+  --sc-color-warning-dark-2: #c97a36;
+  /* 橙系深色：橙色按钮hover/激活、重要强调 */
+  --sc-color-warning: #e69138;
+  /* 橙系主色：操作按钮、强调链接、标签、轻微警告 */
+  --sc-color-warning-light-3: #ed9f52;
+  /* 橙系浅1：橙色描边、小图标、次要强调文字 */
+  --sc-color-warning-light-5: #f3ad6c;
+  /* 橙系浅2：橙色hover背景、轻提示背景 */
+  --sc-color-warning-light-7: #f7bb86;
+  /* 橙系浅3：橙色轻背景、标签底色 */
+  --sc-color-warning-light-8: #f9c9a0;
+  /* 橙系浅4：橙色超轻背景、临时提示底色 */
+  --sc-color-warning-light-9: #fde5c8;
+  /* 橙系浅5：橙色极浅背景、辅助底色 */
+
+  /* ================================= 辅助色2：薄荷绿（成功/正向/提示状态）================================= */
+  --sc-color-success-dark-2: #369966;
+  /* 绿系深色：成功按钮hover/激活、重要成功提示 */
+  --sc-color-success: #42b978;
+  /* 绿系主色：成功状态、完成标签、正向提示、确认按钮 */
+  --sc-color-success-light-3: #5cc38a;
+  /* 绿系浅1：绿系描边、成功图标、次要提示文字 */
+  --sc-color-success-light-5: #76cd9c;
+  /* 绿系浅2：绿系hover背景、轻成功背景 */
+  --sc-color-success-light-7: #90d7ae;
+  /* 绿系浅3：绿系轻背景、成功标签底色 */
+  --sc-color-success-light-8: #aae1c0;
+  /* 绿系浅4：绿系超轻背景、临时成功提示 */
+  --sc-color-success-light-9: #d4ebdf;
+  /* 绿系浅5：绿系极浅背景、辅助底色 */
+
+  /* ================================= 辅助色3：柔紫（个性/特殊标注/次要强调）================================= */
+  --sc-color-purple-dark-2: #885cad;
+  /* 紫系深色：紫色按钮hover/激活、特殊强调 */
+  --sc-color-purple: #9d72c8;
+  /* 紫系主色：特殊标签、个性图标、次要强调、创意模块 */
+  --sc-color-purple-light-3: #aa86cf;
+  /* 紫系浅1：紫系描边、小图标、次要文字 */
+  --sc-color-purple-light-5: #b79ad7;
+  /* 紫系浅2：紫系hover背景、轻标注背景 */
+  --sc-color-purple-light-7: #c4aedf;
+  /* 紫系浅3：紫系轻背景、特殊标签底色 */
+  --sc-color-purple-light-8: #d1c2e7;
+  /* 紫系浅4：紫系超轻背景、辅助底色 */
+  --sc-color-purple-light-9: #e9e0f4;
+  /* 紫系浅5：紫系极浅背景、页面辅助底色 */
+
+  --sc-color-danger-dark-2: #c93646;
+  /* 红系深色：危险按钮hover/激活、重要错误提示、禁止图标 */
+  --sc-color-danger: #e63946;
+  /* 红系主色：核心错误提示、禁止按钮、失败状态、必填项标红 */
+  --sc-color-danger-light-3: #ed525f;
+  /* 红系浅1：错误描边、失败小图标、次要错误文字 */
+  --sc-color-danger-light-5: #f36c79;
+  /* 红系浅2：危险按钮hover浅背景、错误提示轻背景 */
+  --sc-color-danger-light-7: #f78693;
+  /* 红系浅3：错误标签底色、输入框错误边框、轻量警告背景 */
+  --sc-color-danger-light-8: #f9a0ad;
+  /* 红系浅4：超轻错误背景、临时失败提示底色 */
+  --sc-color-danger-light-9: #fde5e7;
+  /* 红系浅5：极浅红背景、错误区域辅助底色（不刺眼） */
+
+  /* ================================= 信息色：青蓝（信息/提示/说明/中性指引状态）================================= */
+  --sc-color-info-dark-2: #258c99;
+  /* 青蓝深色：信息按钮hover/激活、重要说明文字、信息图标 */
+  --sc-color-info: #3a9fb8;
+  /* 青蓝主色：信息提示、说明文本、指引标签、中性交互按钮 */
+  --sc-color-info-light-3: #5a9fc4;
+  /* 青蓝浅1：信息描边、说明小图标、次要信息文字 */
+  --sc-color-info-light-5: #7aaed0;
+  /* 青蓝浅2：信息按钮hover背景、轻提示说明背景 */
+  --sc-color-info-light-7: #9cb9dc;
+  /* 青蓝浅3：信息标签底色、输入框说明边框、指引区域背景 */
+  --sc-color-info-light-8: #bed1e8;
+  /* 青蓝浅4：超轻信息背景、临时说明提示底色 */
+  --sc-color-info-light-9: #e0eaf4;
+  /* 青蓝浅5：极浅青蓝背景、说明区域辅助底色 */
+
+  --sc-bg-color: #ffffff;
+  --sc-bg-color-page: #f2f3f5;
+  --sc-bg-color-overlay: #ffffff;
+  --sc-text-color-primary: #303133;
+  --sc-text-color-regular: #606266;
+  --sc-text-color-secondary: #909399;
+  --sc-text-color-placeholder: #a8abb2;
+  --sc-text-color-disabled: #c0c4cc;
+  --sc-border-color: #dcdfe6;
+  --sc-border-color-light: #e4e7ed;
+  --sc-border-color-lighter: #ebeef5;
+  --sc-border-color-extra-light: #f2f6fc;
+  --sc-border-color-dark: #d4d7de;
+  --sc-border-color-darker: #cdd0d6;
+  --sc-fill-color: #f0f2f5;
+  --sc-fill-color-light: #f5f7fa;
+  --sc-fill-color-lighter: #fafafa;
+  --sc-fill-color-extra-light: #fafcff;
+  --sc-fill-color-dark: #ebedf0;
+  --sc-fill-color-darker: #e6e8eb;
+  --sc-fill-color-blank: #ffffff;
+
+  /* border */
+  --sc-border-width: 1px;
+  --sc-border-style: solid;
+  --sc-border-color-hover: var(--sc-text-color-disabled);
+  --sc-border: var(--sc-border-width) var(--sc-border-style) var(--sc-border-color);
+  --sc-border-radius-base: 4px;
+  --sc-border-radius-small: 2px;
+  --sc-border-radius-round: 20px;
+  --sc-border-radius-circle: 100%;
+
+  /*font*/
+  --sc-font-size-extra-large: 20px;
+  --sc-font-size-large: 18px;
+  --sc-font-size-medium: 16px;
+  --sc-font-size-base: 14px;
+  --sc-font-size-small: 13px;
+  --sc-font-size-extra-small: 12px;
+  --sc-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+  --sc-font-weight-primary: 500;
+
+  /*disabled*/
+  --sc-disabled-bg-color: var(--sc-fill-color-light);
+  --sc-disabled-text-color: var(--sc-text-color-placeholder);
+  --sc-disabled-border-color: var(--sc-border-color-light);
+
+  /*animation*/
+  --sc-transition-duration: .3s;
+  --sc-transition-duration-fast: .2s;
+}

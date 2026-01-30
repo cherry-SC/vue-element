@@ -17,4 +17,10 @@ export default defineConfigWithVueTs(
 
   ...pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
+
+  {
+    rules: {
+      'vue/multi-word-component-names': 0, // 关闭组件名必须多单词的规则
+    }
+  }
 )
