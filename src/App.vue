@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import Button from './components/Button/Button.vue'
-import Collapse from './components/Collapse/Collapse.vue'
-import CollapseItem from './components/Collapse/CollapseItem.vue'
-import {ref,onMounted} from 'vue'
-import type { ButtonInstance } from './components/Button/types'
-import Icon from './components/Icon/Icon.vue'
+import Button from "./components/Button/Button.vue";
+import Collapse from "./components/Collapse/Collapse.vue";
+import CollapseItem from "./components/Collapse/CollapseItem.vue";
+import { ref, onMounted } from "vue";
+import type { ButtonInstance } from "./components/Button/types";
+import Icon from "./components/Icon/Icon.vue";
+import Alert from "./components/Alert/Alert.vue";
 // 定义一个 ref 来引用 Button 组件实例
-const buttonRef = ref<ButtonInstance | null>(null)
+const buttonRef = ref<ButtonInstance | null>(null);
 onMounted(() => {
-  console.log(buttonRef.value?.ref)
-  const buttonRefElement = buttonRef.value?.ref
-  buttonRefElement?.focus()
+  console.log(buttonRef.value?.ref);
+  const buttonRefElement = buttonRef.value?.ref;
+  buttonRefElement?.focus();
   if (buttonRefElement) {
-    buttonRefElement.style.backgroundColor = 'red'
+    buttonRefElement.style.backgroundColor = "red";
   }
-})
-const openValue = ref(['1'])
-
+});
+const openValue = ref(["1"]);
 </script>
 
 <template>
@@ -45,28 +45,106 @@ const openValue = ref(['1'])
   <Button type="primary" disabled>disabled button</Button>
   <Button type="primary" round>round button</Button>
   <Button type="primary" circle>circle button</Button>
-  <hr>
+  <hr />
   <Button type="primary">button</Button>
   <Button type="danger">button</Button>
   <Button type="info">button</Button>
   <Button type="warning">button</Button>
   <Button type="success">button</Button>
-  <hr>
-    <Button type="primary" plain>button</Button>
+  <hr />
+  <Button type="primary" plain>button</Button>
   <Button type="danger" plain>button</Button>
   <Button type="info" plain>button</Button>
   <Button type="warning" plain>button</Button>
   <Button type="success" plain>button</Button>
-  <hr>
+  <hr />
   <Button loading>loading</Button>
   <Button icon="fa-solid fa-alarm-clock">test Icon</Button>
-  <hr>
+  <hr />
   <Icon icon="fa-solid fa-user-secret" color="red" />
   <Icon icon="arrow-up" size="2x" type="danger" />
   <Icon icon="fa-solid fa-address-book" type="info" />
-
+  <hr />
+  <Alert
+    title="alert title"
+    type="info"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    title="alert title"
+    type="warning"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    title="alert title"
+    type="success"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    title="alert title"
+    type="danger"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    title="alert title"
+    type="primary"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <hr>
+  <Alert
+    effect="dark"
+    title="alert title"
+    type="info"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    effect="dark"
+    title="alert title"
+    type="warning"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    effect="dark"
+    title="alert title"
+    type="success"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    effect="dark"
+    title="alert title"
+    type="danger"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
+  <Alert
+    effect="dark"
+    title="alert title"
+    type="primary"
+    showIcon
+    description="alert description"
+    closable
+  ></Alert>
 </template>
 
 <style scoped>
-
+.sc-alert {
+  margin: 20px 0 0;
+}
 </style>
