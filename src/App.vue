@@ -58,7 +58,13 @@ const openValue = ref(['1'])
   <Button type="warning" plain>button</Button>
   <Button type="success" plain>button</Button>
   <hr>
-  <Icon icon="fa-solid fa-user-secret" />
+  <Button loading>loading</Button>
+  <Button icon="fa-solid fa-alarm-clock">test Icon</Button>
+  <hr>
+  <Icon icon="fa-solid fa-user-secret" color="red" />
+  <Icon icon="arrow-up" size="2x" type="danger" />
+  <Icon icon="fa-solid fa-address-book" type="info" />
+
 </template>
 
 <style scoped>

@@ -1,0 +1,16 @@
+.sc-icon {
+  --sc-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--sc-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary,info,success,warning,danger {
+  .sc-icon--$(val) {
+    --sc-icon-color: var(--sc-color-$(val));
+  }
+}

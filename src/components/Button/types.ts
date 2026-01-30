@@ -21,6 +21,10 @@ export interface ButtonProps {
   nativeType?: ButtonNativeType
   /** 是否自动获取焦点 */
   autofocus?: boolean
+  /** 图标名称（参考 FontAwesome 图标库） */
+  icon?: string
+  /** 是否显示加载状态（通常用于异步操作） */
+  loading?: boolean
 }
 
 export interface ButtonInstance {
