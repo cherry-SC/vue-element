@@ -2,16 +2,34 @@
 import Button from "./components/Button/Button.vue";
 import Collapse from "./components/Collapse/Collapse.vue";
 import CollapseItem from "./components/Collapse/CollapseItem.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, h } from "vue";
 import type { ButtonInstance } from "./components/Button/types";
 import Icon from "./components/Icon/Icon.vue";
 import Alert from "./components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
+import Dropdown from "./components/Dropdown/Dropdown.vue";
+import type { MenuOptions } from "./components/Dropdown/types";
 // import type { Options } from "@popperjs/core";
 // import { createPopper } from "@popperjs/core";
 // 定义一个 ref 来引用 Button 组件实例
 const buttonRef = ref<ButtonInstance | null>(null);
 const trigger = ref<any>("hover");
+const options: MenuOptions[] = [
+  {
+    key: "1",
+    label: h('b', 'this is bold'),
+  },
+  {
+    key: "2",
+    label: "item 2",
+    disabled: true,
+  },
+  {
+    key: "3",
+    label: "item 3",
+    divided: true,
+  },
+];
 // const options: Partial<Options> = {
 //   placement: "right-end",
 //   strategy: "fixed",
@@ -159,8 +177,12 @@ const openValue = ref(["1"]);
     </template>
   </Tooltip>
   <hr />
+  <Dropdown :menu-options="options" :trigger="trigger">
+    <h1>dropdown</h1>
+  </Dropdown>
+  <hr />
 </template>
- 
+
 <style scoped>
 .sc-alert {
   margin: 20px 0 0;

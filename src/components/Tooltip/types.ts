@@ -16,7 +16,7 @@ export interface TooltipProps {
 
 
 export interface TooltipEmits {
-  (e: 'visible-change', visible: boolean): void
+  (e: 'visible-change', value: boolean): void
 }
 
 export interface TooltipInstance {
