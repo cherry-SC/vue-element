@@ -1,4 +1,4 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, vi } from "vitest";
 import { mount } from '@vue/test-utils'
 import Collapse from './Collapse.vue'
 // import { h } from 'vue'
@@ -7,8 +7,9 @@ import Item from './CollapseItem.vue'
 // import CollapseItem from './CollapseItem.vue'
 describe('Collapse.vue', () => {
   test('basic collapse', async () => {
+    const onChange = vi.fn()
     const wrapper = mount(() =>
-      <Collapse modelValue={['a']}>
+      <Collapse modelValue={['a']} onChange={onChange}>
         <Item name="a" title="a">
           content a
         </Item>
@@ -37,8 +38,10 @@ describe('Collapse.vue', () => {
 
     expect(contents[0]?.isVisible()).toBeTruthy()
     expect(contents[1]?.isVisible()).toBeFalsy()
+
     // await 点击后等待动画完成,不加await会立即执行,导致断言失败
     await headers[0]?.trigger('click')
+    expect(onChange).toHaveBeenCalledWith([])
     expect(contents[0]?.isVisible()).toBeFalsy()
 
     expect(headers[2]?.classes()).toContain('is-disabled')

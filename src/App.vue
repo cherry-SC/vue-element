@@ -6,8 +6,18 @@ import { ref, onMounted } from "vue";
 import type { ButtonInstance } from "./components/Button/types";
 import Icon from "./components/Icon/Icon.vue";
 import Alert from "./components/Alert/Alert.vue";
+import Tooltip from "./components/Tooltip/Tooltip.vue";
+// import type { Options } from "@popperjs/core";
+// import { createPopper } from "@popperjs/core";
 // 定义一个 ref 来引用 Button 组件实例
 const buttonRef = ref<ButtonInstance | null>(null);
+const trigger = ref<any>("hover");
+// const options: Partial<Options> = {
+//   placement: "right-end",
+//   strategy: "fixed",
+// };
+// const overlayNode = ref<HTMLElement>();
+// const triggerNode = ref<HTMLElement>();
 onMounted(() => {
   console.log(buttonRef.value?.ref);
   const buttonRefElement = buttonRef.value?.ref;
@@ -100,7 +110,7 @@ const openValue = ref(["1"]);
     description="alert description"
     closable
   ></Alert>
-  <hr>
+  <hr />
   <Alert
     effect="dark"
     title="alert title"
@@ -141,10 +151,24 @@ const openValue = ref(["1"]);
     description="alert description"
     closable
   ></Alert>
+  <hr />
+  <Tooltip :trigger="trigger" :open-delay="300" :close-delay="300">
+    <div class="testTooltipDiv">click me</div>
+    <template #content>
+      <h1>this is tooltip content</h1>
+    </template>
+  </Tooltip>
+  <hr />
 </template>
-
+ 
 <style scoped>
 .sc-alert {
   margin: 20px 0 0;
 }
+/* .testTooltipDiv {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+} */
 </style>
