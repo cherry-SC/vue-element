@@ -1,0 +1,64 @@
+.sc-message {
+  --sc-message-bg-color: var(--sc-color-info-light-9);
+  --sc-message-border-color: var(--sc-border-color-lighter);
+  --sc-message-padding: 15px 19px;
+  --sc-message-close-size: 16px;
+  --sc-message-close-icon-color: var(--sc-text-color-placeholder);
+  --sc-message-close-hover-color: var(--sc-text-color-secondary);
+}
+.sc-message {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--sc-border-radius-base);
+  border-width: var(--sc-border-width);
+  border-style: var(--sc-border-style);
+  border-color: var(--sc-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--sc-message-bg-color);
+  padding: var(--sc-message-padding);
+  display: flex;
+  align-items: center;
+  transition: top var(--sc-transition-duration), opacity var(--sc-transition-duration), transform var(--sc-transition-duration);
+  .sc-message__content {
+    color: var(--sc-message-text-color);
+    overflow-wrap: anywhere;
+  }
+  .sc-message__icon {
+    margin-right: 8px;
+    /* 图标垂直居中（避免不同 font-size/line-height 导致上下偏移） */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  &.is-close .sc-message__content {
+    padding-right: 30px;
+  }
+  .sc-message__close {
+    display: flex;
+    align-items: center;
+  }
+  .sc-message__close svg {
+    cursor: pointer;
+  }
+}
+@each $val in info,success,warning,danger {
+  .sc-message--$(val) {
+    --sc-message-bg-color: var(--sc-color-$(val)-light-9);
+    --sc-message-border-color: var(--sc-color-$(val)-light-8);
+    --sc-message-text-color: var(--sc-color-$(val));
+    .sc-message__close {
+      --sc-icon-color: var(--sc-color-$(val));
+    }
+  }
+}
+.sc-message.fade-up-enter-from,
+.sc-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

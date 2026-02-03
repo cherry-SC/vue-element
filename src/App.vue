@@ -9,6 +9,8 @@ import Alert from "./components/Alert/Alert.vue";
 import Tooltip from "./components/Tooltip/Tooltip.vue";
 import Dropdown from "./components/Dropdown/Dropdown.vue";
 import type { MenuOptions } from "./components/Dropdown/types";
+// import Message from "./components/Message/Message.vue";
+import { createMessage } from "./components/Message/method";
 // import type { Options } from "@popperjs/core";
 // import { createPopper } from "@popperjs/core";
 // 定义一个 ref 来引用 Button 组件实例
@@ -17,7 +19,7 @@ const trigger = ref<any>("hover");
 const options: MenuOptions[] = [
   {
     key: "1",
-    label: h('b', 'this is bold'),
+    label: h("b", "this is bold"),
   },
   {
     key: "2",
@@ -37,12 +39,26 @@ const options: MenuOptions[] = [
 // const overlayNode = ref<HTMLElement>();
 // const triggerNode = ref<HTMLElement>();
 onMounted(() => {
+  createMessage({
+    message: "hello message",
+    showClose: true,
+    duration: 3000,
+  });
+  createMessage({
+    message: "hello message 2",
+    showClose: true,
+    duration: 3000,
+    type:"success"
+  });
   console.log(buttonRef.value?.ref);
   const buttonRefElement = buttonRef.value?.ref;
   buttonRefElement?.focus();
   if (buttonRefElement) {
     buttonRefElement.style.backgroundColor = "red";
   }
+  setTimeout(() => {
+    // instance1.destory()
+  }, 2000);
 });
 const openValue = ref(["1"]);
 </script>
