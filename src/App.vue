@@ -48,7 +48,7 @@ onMounted(() => {
     message: "hello message 2",
     showClose: true,
     duration: 3000,
-    type:"success"
+    type: "success",
   });
   console.log(buttonRef.value?.ref);
   const buttonRefElement = buttonRef.value?.ref;

@@ -1,0 +1,32 @@
+:root {
+  --vp-c-brand-1: #ee6024;
+  --vp-c-brand-2: #ff9c66;
+  --vp-c-brand-3: #ffb340;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+}
+
+.VPNavBarTitle .title {
+  font-weight: 600;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 860px;
+}
+
+.VPDoc .container {
+  gap: 28px;
+}
+
+.VPDoc .content-container {
+  padding-top: 24px;
+}
+
+body{
+  color: var(--vp-c-text-1);
+}
+h1,h2,h3,h4,h5,h6,p{
+  color: var(--vp-c-text-1);
+}
+

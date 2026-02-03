@@ -14,18 +14,15 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ScIcon",
-  // 禁用组件的默认属性继承
   inheritAttrs: false,
 });
 </script>
 
-<script setup lang='ts'>
-// import type { FontAwesomeIconProps } from '@fortawesome/vue-fontawesome'
+<script setup lang="ts">
 import { omit } from "lodash-es";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import type { IconProps } from "./types";
 import { computed } from "vue";
-
 const props = defineProps<IconProps>();
 const filterProps = computed(() => omit(props, ["type", "color"]));
 const customStyles = computed(() => {
