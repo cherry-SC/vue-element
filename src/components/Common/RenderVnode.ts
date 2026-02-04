@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 
-const REnderVnode = defineComponent({
+const RenderVnode = defineComponent({
   props:{
     vNode:{
       type:[String,Object],
@@ -12,4 +12,4 @@ const REnderVnode = defineComponent({
   }
 })
 
-export default REnderVnode
+export default RenderVnode

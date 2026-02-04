@@ -22,6 +22,6 @@ export interface InputEmits {
   (e: 'clear'): void // 清空按钮点击时触发
 }
 
-export interface InputExpose {
+export interface InputInstance {
   ref: HTMLInputElement | HTMLTextAreaElement // 输入框 DOM 引用
 }

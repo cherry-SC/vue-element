@@ -15,6 +15,7 @@ import ScTooltip from '../../../src/components/Tooltip/Tooltip.vue'
 import ScDropdown from '../../../src/components/Dropdown/Dropdown.vue'
 import ScInput from '../../../src/components/Input/Input.vue'
 import ScSwitch from '../../../src/components/Switch/Switch.vue'
+import ScSelect from '../../../src/components/Select/Select.vue'
 
 import DemoBlock from './components/DemoBlock.vue'
 
@@ -34,6 +35,7 @@ export default {
     app.component('ScDropdown', ScDropdown)
     app.component('ScInput', ScInput)
     app.component('ScSwitch', ScSwitch)
+    app.component('ScSelect', ScSelect)
     app.component('DemoBlock', DemoBlock)
   },
 } satisfies Theme
