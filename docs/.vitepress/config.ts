@@ -41,6 +41,7 @@ export default defineConfig({
           text: '数据录入',
           items: [
             { text: 'Input 输入框', link: '/components/input' },
+            { text: 'Switch 开关', link: '/components/switch' },
           ],
         },
         {

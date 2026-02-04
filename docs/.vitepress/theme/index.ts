@@ -14,6 +14,8 @@ import ScCollapseItem from '../../../src/components/Collapse/CollapseItem.vue'
 import ScTooltip from '../../../src/components/Tooltip/Tooltip.vue'
 import ScDropdown from '../../../src/components/Dropdown/Dropdown.vue'
 import ScInput from '../../../src/components/Input/Input.vue'
+import ScSwitch from '../../../src/components/Switch/Switch.vue'
+
 import DemoBlock from './components/DemoBlock.vue'
 
 library.add(fas)
@@ -31,6 +33,7 @@ export default {
     app.component('ScTooltip', ScTooltip)
     app.component('ScDropdown', ScDropdown)
     app.component('ScInput', ScInput)
+    app.component('ScSwitch', ScSwitch)
     app.component('DemoBlock', DemoBlock)
   },
 } satisfies Theme

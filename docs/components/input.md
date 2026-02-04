@@ -7,109 +7,224 @@ outline: deep
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const basicValue = ref('')
-const clearableValue = ref('可清空')
-const clearedCount = ref(0)
+const basicValue = ref('Hello')
+const disabledValue = ref('Disabled')
+const readonlyValue = ref('Readonly')
+const largeValue = ref('Large')
+const smallValue = ref('Small')
+const clearableValue = ref('Clear me')
 const passwordValue = ref('123456')
-const textareaValue = ref('这是多行文本\n支持换行')
-const slotValue = ref('Hello')
+const slotValue = ref('Input')
+const textareaValue = ref('多行文本')
 </script>
 
 # Input 输入框
 
-用于接收用户输入，常见于表单、搜索、筛选等场景。
+用于输入与编辑单行或多行文本内容。
+
+适用于表单、搜索、设置等场景，可结合尺寸、清空、密码可见、前后置与前后缀等能力完成更清晰的交互表达。
 
 ## 基础用法
 
-通过 `v-model` 绑定输入值，使用 `placeholder` 提示输入内容。
+使用 `v-model` 双向绑定输入值。
 
 <DemoBlock title="基础用法">
   <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 360px;">
-      <ScInput v-model="basicValue" placeholder="请输入内容" />
-      <div style="color: var(--vp-c-text-2); font-size: 13px;">当前值：{{ basicValue }}</div>
+    <ScInput v-model="basicValue" placeholder="请输入内容" />
+    <p style="font-size: 12px;margin-top: 5px;margin-left: 5px;">输入值：{{ basicValue }}</p>
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const basicValue = ref('Hello')
+</script>
+
+<template>
+  <ScInput v-model="basicValue" placeholder="请输入内容" />
+  <p style="font-size: 12px;margin-top: 5px;margin-left: 5px;">输入值：{{ basicValue }}</p>
+</template>
+```
+
+  </template>
+</DemoBlock>
+
+## 禁用与只读
+
+禁用会阻止输入与交互；只读可聚焦但不可编辑。
+
+<DemoBlock title="禁用与只读">
+  <template #demo>
+    <div style="display: grid; gap: 12px;">
+      <ScInput v-model="disabledValue" disabled />
+      <ScInput v-model="readonlyValue" readonly />
     </div>
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const disabledValue = ref('Disabled')
+const readonlyValue = ref('Readonly')
+</script>
+
+<template>
+  <ScInput v-model="disabledValue" disabled />
+  <ScInput v-model="readonlyValue" readonly />
+</template>
+```
+
+  </template>
+</DemoBlock>
+
+## 尺寸
+
+通过 `size` 设置输入框尺寸，支持 `large` / `small`。
+
+<DemoBlock title="尺寸">
+  <template #demo>
+    <div style="display: grid; gap: 12px;">
+      <ScInput v-model="largeValue" size="large" />
+      <ScInput v-model="smallValue" size="small" />
+    </div>
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const largeValue = ref('Large')
+const smallValue = ref('Small')
+</script>
+
+<template>
+  <ScInput v-model="largeValue" size="large" />
+  <ScInput v-model="smallValue" size="small" />
+</template>
+```
+
   </template>
 </DemoBlock>
 
 ## 可清空
 
-设置 `clearable` 后，在聚焦且有内容时会显示清空按钮；点击触发 `clear` 事件，并同步更新 `v-model`。
+设置 `clearable` 后，输入框在聚焦且有值时显示清空按钮。
 
-<DemoBlock title="可清空（clearable）">
+<DemoBlock title="可清空">
   <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 360px;">
-      <ScInput
-        v-model="clearableValue"
-        clearable
-        placeholder="可清空"
-        @clear="clearedCount++"
-      />
-      <div style="color: var(--vp-c-text-2); font-size: 13px;">
-        值：{{ clearableValue }}（已清空：{{ clearedCount }} 次）
-      </div>
-    </div>
+    <ScInput v-model="clearableValue" clearable placeholder="可清空输入" />
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const clearableValue = ref('Clear me')
+</script>
+
+<template>
+  <ScInput v-model="clearableValue" clearable placeholder="可清空输入" />
+</template>
+```
+
   </template>
 </DemoBlock>
 
-## 密码可见切换
+## 密码可见
 
-配合 `type="password"` 与 `showPassword`，支持切换密码可见。
+设置 `showPassword` 后，输入框会提供显示/隐藏密码的切换按钮。
 
-<DemoBlock title="密码可见切换（showPassword）">
+<DemoBlock title="密码可见">
   <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 360px;">
-      <ScInput v-model="passwordValue" type="password" showPassword placeholder="请输入密码" />
-    </div>
+    <ScInput v-model="passwordValue" type="password" showPassword />
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const passwordValue = ref('123456')
+</script>
+
+<template>
+  <ScInput v-model="passwordValue" type="password" showPassword />
+</template>
+```
+
+  </template>
+</DemoBlock>
+
+## 前后置与前后缀
+
+`prepend` / `append` 用于输入框外侧内容；`prefix` / `suffix` 用于输入框内部图标或提示。
+
+<DemoBlock title="前后置与前后缀">
+  <template #demo>
+    <ScInput v-model="slotValue" placeholder="请输入内容">
+      <template #prepend>http://</template>
+      <template #append>.com</template>
+      <template #prefix>前缀</template>
+      <template #suffix>后缀</template>
+    </ScInput>
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const slotValue = ref('Input')
+</script>
+
+<template>
+  <ScInput v-model="slotValue" placeholder="请输入内容">
+    <template #prepend>http://</template>
+    <template #append>.com</template>
+    <template #prefix>前缀</template>
+    <template #suffix>后缀</template>
+  </ScInput>
+</template>
+```
+
   </template>
 </DemoBlock>
 
 ## 文本域
 
-设置 `type="textarea"` 使用多行输入。
+设置 `type="textarea"` 可使用多行输入。
 
-<DemoBlock title="文本域（textarea）">
+<DemoBlock title="文本域">
   <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 420px;">
-      <ScInput v-model="textareaValue" type="textarea" placeholder="请输入多行内容" />
-    </div>
+    <ScInput v-model="textareaValue" type="textarea" placeholder="请输入多行文本" />
   </template>
-</DemoBlock>
 
-## 尺寸、禁用与只读
+  <template #source>
 
-通过 `size` 控制输入框高度；通过 `disabled` 与 `readonly` 控制交互状态。
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
 
-<DemoBlock title="尺寸 / 禁用 / 只读">
-  <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 360px;">
-      <ScInput v-model="slotValue" placeholder="默认尺寸" />
-      <ScInput v-model="slotValue" size="large" placeholder="large" />
-      <ScInput v-model="slotValue" size="small" placeholder="small" />
-      <ScInput v-model="slotValue" disabled placeholder="disabled" />
-      <ScInput v-model="slotValue" readonly placeholder="readonly" />
-    </div>
-  </template>
-</DemoBlock>
+const textareaValue = ref('多行文本')
+</script>
 
-## 前后缀与前后置
+<template>
+  <ScInput v-model="textareaValue" type="textarea" placeholder="请输入多行文本" />
+</template>
+```
 
-通过 `prefix / suffix / prepend / append` 插槽可以扩展输入框内容。
-
-<DemoBlock title="插槽（prefix / suffix / prepend / append）">
-  <template #demo>
-    <div style="display: grid; gap: 12px; max-width: 420px;">
-      <ScInput v-model="slotValue" placeholder="请输入内容">
-        <template #prepend>https://</template>
-        <template #append>.com</template>
-      </ScInput>
-
-      <ScInput v-model="slotValue" placeholder="用户名">
-        <template #prefix>
-          <ScIcon icon="user" />
-        </template>
-      </ScInput>
-    </div>
   </template>
 </DemoBlock>
 
@@ -119,26 +234,17 @@ const slotValue = ref('Hello')
 
 | 属性名 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| modelValue | string | - | 绑定值（必填） |
-| type | string | "text" | 输入框类型（`text` / `password` / `textarea` 等） |
+| modelValue | string | - | 输入框值（v-model） |
+| type | string | text | 输入框类型（text / password / textarea 等） |
 | size | "large" \| "small" | - | 尺寸 |
 | disabled | boolean | false | 是否禁用 |
 | clearable | boolean | false | 是否显示清空按钮 |
-| showPassword | boolean | false | 是否显示“切换密码可见”按钮 |
-| placeholder | string | - | 占位提示文本 |
+| showPassword | boolean | false | 是否显示密码可见切换 |
+| placeholder | string | - | 占位文本 |
 | readonly | boolean | false | 是否只读 |
-| autocomplete | string | "off" | 原生 autocomplete 属性值 |
+| autocomplete | string | off | 原生 autocomplete 属性 |
 | autofocus | boolean | false | 是否自动聚焦 |
-| form | string | - | 关联的 form id（原生 input 属性） |
-
-### Input Slots
-
-| 插槽名 | 说明 |
-| --- | --- |
-| prepend | 前置内容（输入框左侧） |
-| append | 后置内容（输入框右侧） |
-| prefix | 前缀内容（输入框内部左侧） |
-| suffix | 后缀内容（输入框内部右侧） |
+| form | string | - | 关联的表单 id |
 
 ### Input Events
 
@@ -147,12 +253,21 @@ const slotValue = ref('Hello')
 | update:modelValue | v-model 更新 | string |
 | input | 输入时触发 | string |
 | change | 值变化时触发 | string |
-| focus | 获得焦点 | FocusEvent |
+| focus | 获取焦点 | FocusEvent |
 | blur | 失去焦点 | FocusEvent |
 | clear | 点击清空按钮 | - |
+
+### Input Slots
+
+| 插槽名 | 说明 |
+| --- | --- |
+| prepend | 前置内容 |
+| append | 后置内容 |
+| prefix | 前缀内容 |
+| suffix | 后缀内容 |
 
 ### Input Exposes
 
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| ref | HTMLInputElement \| HTMLTextAreaElement | 输入框 DOM 引用 |
+| ref | HTMLInputElement \| HTMLTextAreaElement | 内部输入框引用 |
