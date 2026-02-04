@@ -4,6 +4,21 @@ description: Tooltip 组件文档
 outline: deep
 ---
 
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { TooltipInstance } from '@/components/Tooltip/types'
+
+const tooltipRef = ref<TooltipInstance | null>(null)
+
+const showManual = () => {
+  tooltipRef.value?.show()
+}
+
+const hideManual = () => {
+  tooltipRef.value?.hide()
+}
+</script>
+
 # Tooltip 文字提示
 
 用于 hover/click 时展示提示内容。
@@ -75,6 +90,50 @@ Tooltip 的默认插槽是触发元素；浮层内容可以通过 `content` 属�
 ## 手动控制
 
 当 `manual` 为 `true` 时，组件不会绑定 hover/click 事件，你可以通过组件实例方法来控制显示与隐藏。
+
+<DemoBlock title="手动控制（实例方法）">
+  <template #demo>
+    <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+      <ScButton type="primary" @click="showManual">显示</ScButton>
+      <ScButton @click="hideManual">隐藏</ScButton>
+      <ScTooltip ref="tooltipRef" manual content="这是手动控制的提示内容">
+        <span style="cursor: default; display: inline-block; padding: 6px 10px; border: 1px dashed var(--vp-c-divider); border-radius: 6px;">
+          目标元素
+        </span>
+      </ScTooltip>
+    </div>
+  </template>
+
+  <template #source>
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { TooltipInstance } from '@/components/Tooltip/types'
+
+const tooltipRef = ref<TooltipInstance | null>(null)
+
+const showManual = () => {
+  tooltipRef.value?.show()
+}
+
+const hideManual = () => {
+  tooltipRef.value?.hide()
+}
+</script>
+
+<template>
+  <ScButton type="primary" @click="showManual">显示</ScButton>
+  <ScButton @click="hideManual">隐藏</ScButton>
+
+  <ScTooltip ref="tooltipRef" manual content="这是手动控制的提示内容">
+    <span>目标元素</span>
+  </ScTooltip>
+</template>
+```
+
+  </template>
+</DemoBlock>
 
 ## Tooltip API
 

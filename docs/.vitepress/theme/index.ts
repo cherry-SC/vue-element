@@ -13,6 +13,7 @@ import ScCollapse from '../../../src/components/Collapse/Collapse.vue'
 import ScCollapseItem from '../../../src/components/Collapse/CollapseItem.vue'
 import ScTooltip from '../../../src/components/Tooltip/Tooltip.vue'
 import ScDropdown from '../../../src/components/Dropdown/Dropdown.vue'
+import ScInput from '../../../src/components/Input/Input.vue'
 import DemoBlock from './components/DemoBlock.vue'
 
 library.add(fas)
@@ -29,6 +30,7 @@ export default {
     app.component('ScCollapseItem', ScCollapseItem)
     app.component('ScTooltip', ScTooltip)
     app.component('ScDropdown', ScDropdown)
+    app.component('ScInput', ScInput)
     app.component('DemoBlock', DemoBlock)
   },
 } satisfies Theme

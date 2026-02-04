@@ -38,6 +38,12 @@ export default defineConfig({
           ],
         },
         {
+          text: '数据录入',
+          items: [
+            { text: 'Input 输入框', link: '/components/input' },
+          ],
+        },
+        {
           text: '数据展示',
           items: [
             { text: 'Collapse 折叠面板', link: '/components/collapse' },
