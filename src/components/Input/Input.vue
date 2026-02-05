@@ -105,10 +105,11 @@ export default defineComponent({
 <script setup lang="ts">
 import type { InputProps, InputEmits } from "./types";
 import type { Ref } from "vue";
-import { ref, watch, computed, useAttrs, nextTick } from "vue";
+import { ref, watch, computed, useAttrs, nextTick, inject } from "vue";
 import Icon from "../Icon/Icon.vue";
+import { formItemContextKey } from "../Form/types";
 
-const NOOP = ()=>{}
+const NOOP = () => {};
 const attrs = useAttrs();
 const emits = defineEmits<InputEmits>();
 const props = withDefaults(defineProps<InputProps>(), {
@@ -141,9 +142,11 @@ const keepFocus = async () => {
 const handleInput = () => {
   emits("update:modelValue", innerValue.value);
   emits("input", innerValue.value);
+  runValidate("input");
 };
 const handleChange = () => {
   emits("change", innerValue.value);
+  runValidate("change");
 };
 const handleFocus = (event: FocusEvent) => {
   isFocus.value = true;
@@ -152,6 +155,7 @@ const handleFocus = (event: FocusEvent) => {
 const handleBlur = (event: FocusEvent) => {
   isFocus.value = false;
   emits("blur", event);
+  runValidate("blur");
 };
 const clear = () => {
   innerValue.value = "";
@@ -169,6 +173,14 @@ watch(
 defineExpose({
   ref: inputRef,
 });
+
+const formItemContext = inject(formItemContextKey);
+const runValidate = (trigger?: string) => {
+  const result = formItemContext
+    ?.validate(trigger)
+    .catch((e) => console.log(e.errors));
+  // console.log('result:', result)
+};
 </script>
 
 <style>

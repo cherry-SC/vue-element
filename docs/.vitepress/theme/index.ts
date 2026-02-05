@@ -16,6 +16,8 @@ import ScDropdown from '../../../src/components/Dropdown/Dropdown.vue'
 import ScInput from '../../../src/components/Input/Input.vue'
 import ScSwitch from '../../../src/components/Switch/Switch.vue'
 import ScSelect from '../../../src/components/Select/Select.vue'
+import ScForm from '../../../src/components/Form/Form.vue'
+import ScFormItem from '../../../src/components/Form/FormItem.vue'
 
 import DemoBlock from './components/DemoBlock.vue'
 
@@ -36,6 +38,8 @@ export default {
     app.component('ScInput', ScInput)
     app.component('ScSwitch', ScSwitch)
     app.component('ScSelect', ScSelect)
+    app.component('ScForm', ScForm)
+    app.component('ScFormItem', ScFormItem)
     app.component('DemoBlock', DemoBlock)
   },
 } satisfies Theme
