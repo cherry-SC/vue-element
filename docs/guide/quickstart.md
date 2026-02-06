@@ -13,7 +13,7 @@ npm i sc-element
 ## 引入样式
 
 ```ts
-import 'sc-element/dist/style.css'
+import 'sc-element/dist/index.css'
 ```
 
 ## 全量注册
