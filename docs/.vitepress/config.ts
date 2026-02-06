@@ -1,12 +1,15 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')?.[1]
+const base = process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : '/'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
   title: 'SC Components',
   description: '一个基于 Vue3 的轻量组件库',
-  base: '/vue-element/',
+  base,
   vite: {
     resolve: {
       alias: {
