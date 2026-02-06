@@ -7,13 +7,13 @@ title: 快速开始
 ## 安装
 
 ```bash
-npm i sc-component-lib
+npm i sc-element
 ```
 
 ## 引入样式
 
 ```ts
-import 'sc-component-lib/dist/style.css'
+import 'sc-element/dist/style.css'
 ```
 
 ## 全量注册
@@ -22,7 +22,7 @@ import 'sc-component-lib/dist/style.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import ScUI from 'sc-component-lib'
+import ScUI from 'sc-element'
 
 createApp(App).use(ScUI).mount('#app')
 ```
@@ -31,7 +31,7 @@ createApp(App).use(ScUI).mount('#app')
 
 ```vue
 <script setup lang="ts">
-import { ScButton, ScAlert } from 'sc-component-lib'
+import { ScButton, ScAlert } from 'sc-element'
 </script>
 
 <template>
