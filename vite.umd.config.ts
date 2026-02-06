@@ -1,49 +1,42 @@
 import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'path'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import dts from 'vite-plugin-dts'
 
 
-
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    vueDevTools(),
-    dts(
-      {
-        tsconfigPath: 'tsconfig.build.json',
-      }
-    ),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    }
   },
   build: {
+    outDir: 'dist/umd',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'ScElement',
-      fileName: 'sc-element'
+      fileName: 'sc-element',
+      formats: ['umd']
     },
     rollupOptions: {
-      external: ['vue', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons', '@fortawesome/vue-fontawesome'],
+      external: ['vue'],
       output: {
         exports: 'named',
         globals: {
           vue: 'Vue'
         },
-        assetFileNames: (chunkInfo) => {
-          if (chunkInfo.name === 'style.css') {
+        assetFileNames: (assetInfo) => {
+          const firstName = assetInfo.names?.[0]
+          if (firstName?.endsWith('.css')) {
             return 'index.css'
           }
-          return chunkInfo.name as string
+          return firstName ?? 'assets/[name]-[hash][extname]'
         }
       }
     }
