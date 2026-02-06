@@ -6,6 +6,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'SC Components',
   description: '一个基于 Vue3 的轻量组件库',
+  base: '/vue-element/',
   vite: {
     resolve: {
       alias: {
@@ -68,7 +69,7 @@ export default defineConfig({
       provider: 'local',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/cherry-SC/vue-element' }
     ]
   }
 })
